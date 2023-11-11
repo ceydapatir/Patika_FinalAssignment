@@ -5,13 +5,6 @@ Uygulama içerisinde satın alma, ürün takip, sipariş onayı ve takibi işlem
 
 Proje Unit Of Work design pattern ile tasarlandı. Tüm modellerin POST ve PUT istekleri için Fluent Validation uygulandı. Proje içerisinde AutoMapper ve MediatR kullanıldı. .NET Web API tarafında JSON Web Token (JWT) tabanlı kimlik doğrulama ve yetkilendirme kullanılarak güvenlik sağlandı.
 
----
-## Installation
-Clone this repo and run these commands in the project file directory:
-```
-dotnet build
-dotnet run
-```
 
 ---
 ## Requests
