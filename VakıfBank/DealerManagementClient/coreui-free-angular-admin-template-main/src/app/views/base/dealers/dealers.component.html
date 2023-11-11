@@ -1,0 +1,72 @@
+<form class="form-inline">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-info" type="submit"><svg cIcon name="cil-search" ></svg></button>
+  <ng-template [ngTemplateOutlet]="userDropdown" ></ng-template>
+</form>
+<c-card class="mb-4"  *ngIf="create">
+  <c-card-body class="update-from">
+    <form [formGroup] = "DealerRequest" cForm>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="CompanyName" formControlName="CompanyName" placeholder="Company Name" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="Mail" formControlName="Mail" placeholder="Mail" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="ProfitMargin" formControlName="ProfitMargin" placeholder="Profit Margin" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="ContractDeadline" formControlName="ContractDeadline" placeholder="ContractDeadline" type="date"  />
+      </c-input-group>
+      <button cButton (click)="CreateDealer()" class="btn btn-outline-info" style="width: 100%;">
+        Create
+      </button>
+    </form>
+  </c-card-body>   
+</c-card>
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+<c-card class="mb-4">
+  <c-card-header style="display: flex;">
+    <strong style="font-size: x-large;">Dealers</strong>
+    <button class="btn btn-outline-info"  style="margin: auto; margin-right: 0;" type="submit" (click)="CreateTemplate()"><svg cIcon name="cil-plus" ></svg></button>
+  </c-card-header>
+  <c-card-body>
+    <div style="background-color: rgb(44, 44, 87); color: white;">
+      <div class="table-header row">
+        <p class="col-1" style="padding-left: 2rem;">#</p>
+        <p class="col-2" >Name</p>
+        <p class="col-3" >Mail</p>
+        <p class="col-3" >Profit Margin</p>
+        <p class="col" ></p>
+      </div>
+    </div>
+    <div *ngFor="let dealer of dealers" >
+      <div class="table-item row" >
+        <p class="col-1" style="padding-left: 2rem;">{{dealer?.companyId}}</p>
+        <p class="col-2">{{dealer?.companyName}}</p>
+        <p class="col-3">{{dealer?.mail}}</p>
+        <p class="col-3">{{dealer?.profitMargin}}</p>
+        <p style="margin-top: 0.7rem; min-width: 125px; justify-content: right; position: absolute; display: flex; ">
+          <button class="btn btn-outline-info" type="submit"(click)="GetUserComponent(dealer.companyId)" ><svg cIcon name="cil-group" ></svg></button>
+          <button class="btn btn-outline-info" type="submit"  style="margin-right: 0.5rem;" (click)="DeleteDealer(dealer.companyId)"><svg cIcon name="cil-delete" ></svg></button>
+        </p>
+      </div>
+    </div>
+  </c-card-body>
+</c-card>
+
+
+<ng-template #userDropdown>
+  <c-dropdown alignment="end" variant="nav-item">
+    
+  <button class="btn btn-outline-success" type="submit" cDropdownToggle [caret]="false" ><svg cIcon name="cil-filter" ></svg></button>
+    <ul cDropdownMenu class="pt-0 pr-5 w-auto">
+      <li>
+        <h6 cDropdownHeader class="bg-light fw-semibold py-2">Account</h6>
+      </li>
+      <li></li>
+    </ul>
+  </c-dropdown>
+</ng-template>

@@ -1,0 +1,68 @@
+:host ::ng-deep{
+    .accordion-button::after{
+      margin: 0;
+      margin-left: 1rem;
+    }
+    .accordion-button{
+      justify-content: space-between;
+    }
+    .table-header > p {
+      margin-top: 1rem;
+    }
+    .form-inline{
+      display: flex;
+      margin-bottom: 2rem;
+    }
+    .btn{
+      color: #2c2c57;
+      padding: 0.375rem 0.75rem;
+      border-color: #2c2c57;
+    }
+    .btn:hover{
+      background-color: #55558b;
+    }
+    .add-cart.btn{
+      width:50%;
+    }
+    .product-detail{
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      align-items: center;
+    }
+    .item2{
+      margin: 2rem 2rem;
+      min-width: 100px;
+    }
+    .item3{
+      margin: 2rem 2rem;
+    }
+    
+    @media (max-width: 1120px) {
+      .product-detail {
+        grid-template-columns: 1fr 1fr; 
+      }
+      .item2{
+        margin: 1rem 1rem;
+      }
+      .item3{
+        margin: 1rem 1rem;
+        grid-row: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+      @media (max-width: 500px) {
+      .product-detail {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 3fr 2fr 2fr; 
+      }
+      .item2{
+        margin: 1rem 1rem;
+        grid-row: 2;
+      }
+      .item3{
+        margin: 0rem 1rem;
+        grid-row: 3;
+      }
+    }
+    }
+  } 

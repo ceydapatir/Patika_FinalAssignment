@@ -1,0 +1,48 @@
+<form class="form-inline">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-info" type="submit"><svg cIcon name="cil-search" ></svg></button>
+  <ng-template [ngTemplateOutlet]="userDropdown" ></ng-template>
+</form>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+<c-card class="mb-4">
+  <c-card-header>
+    <strong style="font-size: x-large;">Orders</strong>
+  </c-card-header>
+  <c-card-body>
+    <div style="background-color: rgb(44, 44, 87); color: white;">
+      <div class="table-header" style="margin-left: 1.3rem; margin-right: 0%; display: flex; justify-content: space-between; ">
+        <p class="col-1">#</p>
+        <p class="col">Company Id</p>
+        <p class="col">Total Price</p>
+        <p class="col">Status</p>
+        <p></p>
+      </div>
+    </div>
+    <div *ngFor="let order of orders" class="table-item row">
+          <p class="col-1" style="padding-left: 2rem;">{{order?.orderId}}</p>
+          <p class="col" style="padding-left: 4rem;">{{order?.companyId}}</p>
+          <p class="col">{{order?.totalPrice}} ₺</p>
+          <p class="col" style="padding-right: 4rem;">{{order?.status}}</p>
+          <p  style="margin-top: 0.7rem; min-width: 125px; justify-content: right; position: absolute; display: flex; ">
+            <button class="btn btn-outline-info" type="submit" (click)="GetDetails(order.orderId)" style="margin-right: 1rem;"><svg cIcon name="cil-external-link" ></svg></button>
+          </p>
+    </div>
+  </c-card-body>
+</c-card>
+
+
+<ng-template #userDropdown>
+  <c-dropdown alignment="end" variant="nav-item">
+    
+  <button class="btn btn-outline-success" type="submit" cDropdownToggle [caret]="false" ><svg cIcon name="cil-filter" ></svg></button>
+    <ul cDropdownMenu class="pt-0 pr-5 w-auto">
+      <li>
+        <h6 cDropdownHeader class="bg-light fw-semibold py-2">Account</h6>
+      </li>
+      <li></li>
+    </ul>
+  </c-dropdown>
+</ng-template>

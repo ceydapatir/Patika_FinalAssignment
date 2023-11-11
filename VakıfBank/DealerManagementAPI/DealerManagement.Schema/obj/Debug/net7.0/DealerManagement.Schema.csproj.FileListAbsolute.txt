@@ -1,0 +1,17 @@
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Schema.deps.json
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Schema.dll
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Schema.pdb
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Base.dll
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Data.dll
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Data.pdb
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\bin\Debug\net7.0\DealerManagement.Base.pdb
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.csproj.AssemblyReference.cache
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.AssemblyInfoInputs.cache
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.AssemblyInfo.cs
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.csproj.CoreCompileInputs.cache
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.csproj.CopyComplete
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.dll
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\refint\DealerManagement.Schema.dll
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\DealerManagement.Schema.pdb
+C:\Users\patir\Desktop\Projeler\VakıfBank\DealerManagementAPI\DealerManagement.Schema\obj\Debug\net7.0\ref\DealerManagement.Schema.dll

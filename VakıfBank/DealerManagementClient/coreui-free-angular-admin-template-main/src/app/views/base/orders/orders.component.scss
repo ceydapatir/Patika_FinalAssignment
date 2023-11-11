@@ -1,0 +1,21 @@
+:host ::ng-deep{
+  .accordion-button::after{
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .accordion-button{
+    justify-content: space-between;
+  }
+  .table-header > p {
+    margin-top: 1rem;
+  }
+  .form-inline{
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  
+  .table-item > p {
+    margin-top: 1rem;
+  }
+ 
+  } 

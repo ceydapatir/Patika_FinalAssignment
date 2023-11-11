@@ -1,0 +1,67 @@
+<form class="form-inline">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-info" type="submit"><svg cIcon name="cil-search" ></svg></button>
+  <ng-template [ngTemplateOutlet]="userDropdown" ></ng-template>
+</form>
+
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>   
+<c-card class="mb-4">
+  <c-card-header>
+    <strong style="font-size: x-large;">Supplier Products</strong>
+  </c-card-header>
+  <c-card-body>
+    <div style="background-color: rgb(44, 44, 87); color: white;">
+      <div class="table-header" style="margin-left: 1.3rem; margin-right: 27%; display: flex; justify-content: space-between; ">
+        <p>#</p>
+        <p>Code</p>
+        <p>Name</p>
+        <p></p>
+      </div>
+    </div>
+    <c-accordion *ngFor="let product of products"  [flush]="true">
+      <c-accordion-item unvisible>
+        <ng-template cTemplateId="accordionHeader" >
+          <p>{{product?.productId}}</p>
+          <p>{{product?.productCode}}</p>
+          <p>{{product?.productName}}</p>
+          <p></p>
+        </ng-template>
+        <ng-template cTemplateId="accordionBody">
+          <span style="display: flex;">
+            <div class="product-detail">
+              <div class="item1">
+                <img src="../../../../assets/img/products/product1.jpg" alt="">
+              </div>
+              <div class="item2">
+                  <p>Code: {{product?.productCode}}</p>
+                  <p>Name: {{product?.productName}}</p>
+                  <p>Unit Price: {{product?.unitPrice}}</p>
+              </div>
+              <div class="item3">
+                <p>Product Description: {{product.description}}</p>
+                <form  [formGroup] = "OrderItemRequest" cForm class="form-inline" style="margin: 1rem 0rem;">
+                  <input cFormControl autoComplete="Amount" formControlName="Amount" placeholder="Amount" class="form-control mr-sm-2" type="number" min="1" >
+                  <button cButton (click)="AddToCart(product.productId)" class="add-cart btn btn-outline-info" type="submit" ><svg cIcon name="cil-cart"></svg></button>
+                </form>
+              </div>
+            </div>              
+          </span>
+        </ng-template>
+      </c-accordion-item>
+    </c-accordion>
+  </c-card-body>
+</c-card>
+
+<ng-template #userDropdown>
+  <c-dropdown alignment="end" variant="nav-item">
+  <button class="btn btn-outline-success" type="submit" cDropdownToggle [caret]="false" ><svg cIcon name="cil-filter" ></svg></button>
+    <ul cDropdownMenu class="pt-0 pr-5 w-auto">
+      <li>
+        <h6 cDropdownHeader class="bg-light fw-semibold py-2">Account</h6>
+      </li>
+      <li></li>
+    </ul>
+  </c-dropdown>
+</ng-template>

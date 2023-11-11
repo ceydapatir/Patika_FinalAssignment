@@ -1,0 +1,50 @@
+<form class="form-inline">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-info" type="submit"><svg cIcon name="cil-search" ></svg></button>
+  <ng-template [ngTemplateOutlet]="userDropdown" ></ng-template>
+</form>
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+<c-card class="mb-4">
+  <c-card-header >
+    <strong style="font-size: x-large;">Employees</strong>
+  </c-card-header>
+  <c-card-body>
+    <div style="background-color: rgb(44, 44, 87); color: white;">
+      <div class="table-header row">
+        <p class="col-1" style="padding-left: 2rem;">#</p>
+        <p class="col-2">Employee Number</p>
+        <p class="col-3">Name Surname</p>
+        <p class="col-3">Mail</p>
+        <p class="col" ></p>
+      </div>
+    </div>
+    <div>
+      <div *ngFor="let employee of employees"  class="table-item row">
+        <p class="col-1" style="padding-left: 2rem;">1</p>
+        <p class="col-2">{{employee?.employeeNumber}}</p>
+        <p class="col-3">{{employee?.name}} {{employee?.surname}}</p>
+        <p class="col-3">{{employee?.mail}}</p>
+        <p  style="margin-top: 0.7rem; min-width: 125px; justify-content: right; position: absolute; display: flex; ">
+          <button *ngIf="employeeType == 'admin'" class="btn btn-outline-info" type="submit" (click)="DeleteEmployee(employee.employeeId)"><svg cIcon name="cil-delete" ></svg></button>
+          <button class="btn btn-outline-info" type="submit" (click)="GetMessagesComponent(employee.employeeId)" style="margin-left: 0.2rem; margin-right: 0.5rem;"><svg cIcon name="cil-envelope-closed" ></svg></button>
+        </p>
+      </div>
+    </div>
+  </c-card-body>
+</c-card>
+
+
+<ng-template #userDropdown>
+  <c-dropdown alignment="end" variant="nav-item">
+    
+  <button class="btn btn-outline-success" type="submit" cDropdownToggle [caret]="false" ><svg cIcon name="cil-filter" ></svg></button>
+    <ul cDropdownMenu class="pt-0 pr-5 w-auto">
+      <li>
+        <h6 cDropdownHeader class="bg-light fw-semibold py-2">Account</h6>
+      </li>
+      <li></li>
+    </ul>
+  </c-dropdown>
+</ng-template>

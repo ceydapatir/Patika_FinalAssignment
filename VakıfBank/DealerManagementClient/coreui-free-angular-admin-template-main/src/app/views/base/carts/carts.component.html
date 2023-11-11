@@ -1,0 +1,66 @@
+
+<c-card class="mb-4">
+    <c-card-header style="display: flex;">
+        <strong style="font-size: x-large;">Cart</strong>
+    </c-card-header>
+    <c-card-body >
+        <div *ngFor="let orderItem of orderItems" >
+            <div class="item" >
+                <div>
+                    <p>Product Code: {{orderItem?.productCode}}</p>
+                    <p>Product Name: {{orderItem?.productName}}</p> 
+                    <p>Amount: {{orderItem?.amount}}</p>
+                </div>
+                <form [formGroup] = "OrderItemRequest" cForm class="form-inline cart">
+                    <input cFormControl autoComplete="Amount" formControlName="Amount" placeholder="Amount" class="form-control mr-sm-2" type="number" min="1" >
+                    <button cButton (click)="UpdateAmount(orderItem.orderItemId)" class="add-cart btn btn-outline-info" type="submit" ><svg cIcon name="cil-pencil"></svg></button>
+                    <button cButton (click)="DeleteOrderItem(orderItem.orderItemId)" class="add-cart btn btn-outline-info" type="submit" ><svg cIcon name="cil-delete"></svg></button>
+                </form>
+            </div>
+            <hr style="border: 1px solid;">
+        </div>
+        <div class="item" style="justify-content: space-between;">
+            <p>Unit Price Sum: {{order?.price}} ₺</p>
+            <p>KDV Sum: {{order?.kdvPrice}} ₺</p> 
+            <p>Total: {{order?.totalPrice}} ₺</p>
+        </div>
+            <button class="btn btn-outline-info" style="width: 100%; margin: 0;" type="submit" (click)="DeleteAllOrderItem()">Empty Cart</button>
+    </c-card-body>
+</c-card>
+
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+</div>
+
+<c-card class="mb-4">
+    <c-card-header style="display: flex;">
+        <strong style="font-size: x-large;">Payment</strong>
+    </c-card-header>
+    <c-card-body >
+        <h6>Payment Type</h6>
+        <div style="display: flex;">
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentType" id="eft_transfer" (change)="GetPaymentType($event)">
+            <label class="form-check-label" for="flexRadioDefault1">
+              EFT or Transfer
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentType" id="open_credit"  (change)="GetPaymentType($event)">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Open Account or Credit Card
+            </label>
+          </div>
+        </div>
+        <h6 *ngIf="isCardVisible" >Card</h6>
+        <div *ngIf="isCardVisible" style="display: flex;">
+            <div *ngFor="let card of cards" >
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="card" id={{card.cardId}} (change)="GetCardId($event)">
+                    <label class="form-check-label" for="flexRadioDefault2">{{card?.cardName}}</label>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-outline-info"  style="width: 100%; margin: 0;" type="submit" (click)="Payment()">Payment</button>
+    </c-card-body>
+</c-card>

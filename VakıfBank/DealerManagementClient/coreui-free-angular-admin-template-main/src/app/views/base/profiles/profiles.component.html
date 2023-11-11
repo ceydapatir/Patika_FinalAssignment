@@ -1,0 +1,41 @@
+
+<c-card class="mb-4">
+  <c-card-header style="display: flex;">
+    <strong style="font-size: x-large;">Profile</strong>
+    <button class="btn btn-outline-info update" type="submit" (click)="UpdateTemplate()"><svg cIcon name="cil-pencil" ></svg></button>
+  </c-card-header>
+  <c-card-body >
+    <div class="profile">
+      <div class="item">
+        <p>Name: {{employee?.name}}</p>
+        <p>Surname: {{employee?.surname}}</p>
+        <p>Mail: {{employee?.mail}}</p>
+        <p>Company Id: {{employee?.companyId}}</p>
+        <p>EmployeeNumber: {{employee?.employeeNumber}}</p>
+      </div>
+    </div>
+  </c-card-body> 
+  <c-card-body *ngIf="update" >
+    <hr style="border: 1px solid;">
+    <div class="update-from">
+      <form [formGroup] = "EmployeeUpdateRequest" cForm>
+        <c-input-group class="mb-3">
+          <input cFormControl autoComplete="Mail" formControlName="Mail" placeholder="Mail" />
+        </c-input-group>
+        <c-input-group class="mb-3">
+          <input cFormControl autoComplete="Password" formControlName="Password" placeholder="Password" type="password"/>
+        </c-input-group>
+        <c-input-group class="mb-3">
+          <input cFormControl placeholder="Password*" type="password"/>
+        </c-input-group>
+        <button cButton (click)="UpdateProfile()" class="btn btn-outline-info" style="width: 100%;">
+          Update
+        </button>
+      </form>
+    </div>
+  </c-card-body>
+</c-card>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>

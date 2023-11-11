@@ -1,0 +1,47 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form [formGroup] = "TokenRequest" cForm>
+                <h1>Login</h1>
+                <p class="text-medium-emphasis">Sign In to your account</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="EmployeeNumber" formControlName="EmployeeNumber" cFormControl placeholder="Username" />
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Password"
+                    type="password"
+                    formControlName="Password"
+                  />
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton (click) = "OnSubmit()" class="px-4" color="primary" style="margin: auto; margin-right: 0; margin-bottom: 1rem;">
+                      Login
+                    </button>
+                    <div *ngIf="errorMessage" class="error-message">
+                      {{ errorMessage }}
+                    </div>
+                  </c-col>
+                </c-row>
+              </form>
+                    <a href="http://localhost:4200/register" >Don't have an account?</a>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

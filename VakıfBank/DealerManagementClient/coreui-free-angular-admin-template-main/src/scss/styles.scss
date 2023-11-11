@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+// If you want to override variables do it here
+@import "variables";
+
+$enable-ltr: true;
+$enable-rtl: true;
+
+// Import styles with default layout.
+@import "@coreui/coreui/scss/coreui";
+
+// Import Chart.js custom tooltips styles
+@import "@coreui/chartjs/scss/coreui-chartjs";
+
+@import "layout";
+
+// Some temp fixes
+@import "fixes";
+
+// Prism.js
+@import "examples";
+
+// If you want to add something do it here
+@import "custom";
+
+.btn{
+  color: #2c2c57;
+  padding: 0.375rem 0.75rem;
+  border-color: #2c2c57;
+  background-color: white;
+  margin: 0rem 0rem 0rem 1rem;
+}
+.btn:hover{
+  background-color: #55558b;
+}
+.update{
+  justify-content: end; 
+  margin: auto; 
+  margin-right: 0;
+}
+.company-profile{
+  margin: 1rem 2rem;
+}
+.update-from{
+  margin: 0rem 2rem;
+}
+.error-message{
+  margin: 1rem 1rem;
+  color: red;
+}

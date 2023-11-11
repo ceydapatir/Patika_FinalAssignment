@@ -1,0 +1,76 @@
+
+<c-card class="mb-4">
+  <c-card-header style="display: flex;">
+    <strong style="font-size: x-large;">{{company?.companyName}}</strong>
+    <button class="btn btn-outline-info update" type="submit" (click)="UpdateTemplate()"><svg cIcon name="cil-pencil" ></svg></button>
+    <button class="btn btn-outline-info" type="submit" (click)="GetUserComponent(company.companyId)"  ><svg cIcon name="cil-group" ></svg></button>
+  </c-card-header>
+  <c-card-body >
+    <div class="company-profile">
+      <div class="item">
+        <p>Company Id: {{company?.companyId}}</p>
+        <p>Mail: {{company?.mail}}</p>
+        <p *ngIf="company?.iban" >IBAN: {{company?.iban}}</p> 
+        <p *ngIf="company?.profitMargin" >Profit Margin: {{company?.profitMargin}}</p>
+        <p *ngIf="company?.contractDeadline">Contract Deadline: {{company?.contractDeadline}}</p> 
+      </div>
+        <p>Adress: {{address}}</p>
+    </div>
+  </c-card-body> 
+  <c-card-body *ngIf="update" >
+    <hr style="border: 1px solid;">
+    <div class="update-from">
+      <form [formGroup] = "CompanyUpdateRequest" cForm>
+        <c-input-group class="mb-3">
+          <input cFormControl autoComplete="Mail" formControlName="Mail" placeholder="Mail" />
+        </c-input-group>
+        <button cButton (click)="UpdateCompany()" class="btn btn-outline-info" style="width: 100%;">
+          Update
+        </button>
+      </form>
+    </div>
+  </c-card-body>
+</c-card>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+<c-card *ngIf=" company_type == 'dealer'" class="mb-4">
+  <c-card-header style="display: flex;">
+    <strong style="font-size: x-large;">Cards</strong>
+    <button class="btn btn-outline-info" type="submit" style="justify-content: end; margin: auto; margin-right: 0;" (click)="AddCardTemplate()"><svg cIcon name="cil-plus" ></svg></button>
+  </c-card-header>
+  <c-card-body *ngIf="addcard">
+    <div class="company-profile">
+      <form [formGroup] = "CardRequest" cForm>
+        <c-input-group class="mb-3">
+          <input cFormControl autoComplete="CardName" formControlName="CardName" placeholder="Card Name" />
+        </c-input-group>
+        <c-input-group class="mb-3">
+          <input cFormControl autoComplete="CardNumber" formControlName="CardNumber" placeholder="Card Number" />
+        </c-input-group>
+        <c-input-group class="mb-3">
+          <input cFormControl autoComplete="CVV" formControlName="CVV" placeholder="CVV" />
+        </c-input-group>
+        <c-input-group class="mb-4">
+          <input cFormControl autoComplete="ExpireDate" formControlName="ExpireDate" placeholder="Expire Date"/>
+        </c-input-group>
+        <button cButton (click) = "CreateCard()" class="btn btn-outline-info" style=" margin: 1rem 0rem; width: 100%;">
+          Add Card
+        </button>
+      </form>
+    </div>
+  </c-card-body>
+  <c-card-body >
+    <c-card *ngFor="let card of cards" class="mb-4 item">
+      <c-card-header style="background-color: rgb(44, 44, 87); color: white; justify-content: space-between; display: flex;">
+      <strong style="font-size: large; margin-top: 0.3rem;"><svg cIcon name="cilCreditCard" style="color: white;"></svg>&emsp;{{card?.cardName}}</strong>
+      <button class="btn" type="submit" (click)= "DeleteCard(card.cardId)"><svg cIcon name="cil-x" ></svg></button>
+      </c-card-header>
+      <c-card-body>
+          <p>Card Number: {{card?.cardNumber}}</p>
+      </c-card-body>
+    </c-card>
+  </c-card-body>
+</c-card>

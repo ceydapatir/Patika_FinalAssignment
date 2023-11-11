@@ -1,0 +1,16 @@
+
+<c-card class="mb-4">
+  <c-card-header style="display: flex;">
+    <strong style="font-size: x-large;">{{supplier?.companyName}}</strong>
+    <button class="btn btn-outline-info" type="submit" (click)= "GetUserComponent(supplier.companyId)" style="margin: auto; margin-right: 0;"><svg cIcon name="cil-group"></svg></button>
+   </c-card-header>
+   <c-card-body >
+       <div class="company-profile" style="margin: 1rem 2rem;">
+           <div class="item">
+               <p>Mail: {{supplier?.mail}}</p>
+               <p>IBAN: {{supplier?.iban}}</p> 
+           </div>
+               <p>Adress: {{address}}</p>
+       </div>
+   </c-card-body>
+ </c-card>

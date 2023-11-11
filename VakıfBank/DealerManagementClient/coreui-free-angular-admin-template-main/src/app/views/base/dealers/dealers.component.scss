@@ -1,0 +1,33 @@
+:host ::ng-deep{
+  .dealer-custom {
+    .dealer-button {
+      background-color: var(--cui-dark);
+      color: var(--cui-white);
+    }
+  }
+  .accordion-button::after{
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .accordion-button{
+    justify-content: space-between;
+  }
+  .table-header > p {
+    margin-top: 1rem;
+  }
+  .table-item > p {
+    margin-top: 1rem;
+  }
+  .form-inline{
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  .btn{
+    color: #2c2c57;
+    padding: 0.375rem 0.75rem;
+    border-color: #2c2c57;
+  }
+  .btn:hover{
+    background-color: #55558b;
+  }
+} 

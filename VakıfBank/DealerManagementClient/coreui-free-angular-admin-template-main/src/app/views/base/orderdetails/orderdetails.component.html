@@ -1,0 +1,34 @@
+
+<c-card class="mb-4">
+  <c-card-header style="display: flex;">
+    <strong style="font-size: x-large;">Order Details</strong></c-card-header>
+   <c-card-body >
+      <div class="company-profile" style="margin: 1rem 2rem;">
+        <p>Order Id: {{order?.orderId}}</p>
+        <p>Company Id: {{order?.companyId}}</p>
+        <p>Total Price: {{order?.totalPrice}} ₺</p>
+        <p>Status: {{order?.status}}</p>
+        <hr style="border: 1px solid;">
+      </div>
+       <div class="company-profile" style="margin: 1rem 2rem;">
+        <p>Payment Type: {{payment?.paymentType}}</p>
+        <p>Payment Status: {{payment?.status}}</p> 
+        <p>Payment Date: {{payment?.paymentDate}}</p>
+        <hr style="border: 1px solid;">
+        <p>Order Items: </p>
+        <div *ngFor="let orderItem of orderItems" class="orderItem"> 
+          <p>Product Code: {{orderItem?.productCode}}</p>
+          <p>Product Name: {{orderItem?.productName}}</p> 
+          <p>Amount: {{orderItem?.amount}}</p>
+        </div>
+       </div>
+       <hr style="border: 1px solid;">
+       <div style="display: flex; justify-content: space-between;">
+           <button *ngIf="employeeType == 'admin' && order?.status != 'Confirmed'" class="btn btn-outline-info order" type="submit" (click)="ConfirmOrder(order.orderId)">Accept Order</button>
+           <button *ngIf="order?.status != 'Cancelled'" class="btn btn-outline-info order" type="submit" (click)="CancelOrder(order.orderId)">Cancel Order</button>
+       </div>
+       <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+   </c-card-body>
+ </c-card>

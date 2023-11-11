@@ -1,0 +1,15 @@
+:host ::ng-deep{
+    .profile{
+      margin: auto; 
+      margin-right: 0; 
+      justify-content: right; 
+      display: flex;
+    }
+    .profile_btn{
+      border: none;
+      padding: 0;
+    }
+    .profile_btn:hover{
+      background-color: white;
+    }
+  } 

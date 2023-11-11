@@ -1,0 +1,66 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form [formGroup] = "EmployeeRequest" cForm>
+                <h1>Register</h1>
+                <p class="text-medium-emphasis">Create an account</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cil-building"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="CompanyId" formControlName="CompanyId" placeholder="CompanyId" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="EmployeeName" formControlName="EmployeeName" placeholder="EmployeeName" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="EmployeeSurname" formControlName="EmployeeSurname" placeholder="EmployeeSurname" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="EmployeeNumber" formControlName="EmployeeNumber" placeholder="EmployeeNumber" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cil-at"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="Mail" formControlName="Mail" placeholder="Mail" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="Password" formControlName="Password" placeholder="Password"  type="password" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input  cFormControl autoComplete="SecondPassword" formControlName="SecondPassword" placeholder="SecondPassword" type="password" />
+                </c-input-group>
+                <div class="d-grid">
+                  <button cButton color="success" (click)="CreateAccount()" >Create Account</button>
+                </div>
+                <div *ngIf="errorMessage" class="error-message">
+                  {{ errorMessage }}
+                </div>
+              </form>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

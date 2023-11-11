@@ -1,0 +1,114 @@
+<form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-info" type="submit"><svg cIcon name="cil-search" ></svg></button>
+    <ng-template [ngTemplateOutlet]="userDropdown" ></ng-template>
+  </form>
+
+<c-card class="mb-4"  *ngIf="create && employeeType == 'admin'">
+  <c-card-body class="update-from">
+    <form [formGroup] = "ProductRequest" cForm>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="ProductCode" formControlName="ProductCode" placeholder="Product Code" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="ProductName" formControlName="ProductName" placeholder="Product Name" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="Price" formControlName="UnitPrice" placeholder="Price" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="Stock" formControlName="Stock" placeholder="Stock" type="number" min="1" />
+      </c-input-group>
+      <c-input-group class="mb-3">
+        <input cFormControl autoComplete="Description" formControlName="Description" placeholder="Description" />
+      </c-input-group>
+      <button cButton (click)="CreateProduct()" class="btn btn-outline-info" style="width: 100%;">
+        Create
+      </button>
+    </form>
+  </c-card-body>   
+</c-card>
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+  <c-card class="mb-4">
+    <c-card-header style="display: flex;">
+      <strong style="font-size: x-large;">Stocks</strong> 
+      <button *ngIf="employeeType == 'admin'" class="btn btn-outline-info"  style="margin: auto; margin-right: 0;" type="submit" (click)="CreateTemplate()"><svg cIcon name="cil-plus" ></svg></button>
+    </c-card-header>
+    <c-card-body>
+      <div style="background-color: rgb(44, 44, 87); color: white;">
+        <div class="table-header" >
+          <p class="col-1">#</p>
+          <p class="col-3">Code</p>
+          <p class="col-3">Name</p>
+          <p class="col-3">Stock</p>
+          <p></p>
+        </div>
+      </div>
+      <c-accordion *ngFor="let product of products"  [flush]="true">
+        <c-accordion-item unvisible>
+          <ng-template cTemplateId="accordionHeader" >
+            <p class="col-1">{{product?.productId}}</p>
+            <p class="col-3">{{product?.productCode}}</p>
+            <p class="col-3">{{product?.productName}}</p>
+            <p class="col-3">{{product?.stock}}</p>
+          </ng-template>
+          <ng-template cTemplateId="accordionBody">
+            <span>
+              <div class="product-detail">
+                <div class="item">
+                  <img src="../../../../assets/img/products/product1.jpg" alt="">
+                </div>
+                <div class="item2">
+                    <p>Code: {{product.productCode}}</p>
+                    <p>Name: {{product.productName}}</p>
+                    <p>Unit Price: {{product.unitPrice}}</p>
+                    <p>Stock: {{product?.stock}}</p>
+                </div>
+                <div class="item3">
+                  <p>Product Description: {{product.description}}</p>
+                  <button *ngIf="employeeType == 'admin'" class="btn btn-outline-info update" type="submit" (click)="UpdateTemplate()"><svg cIcon name="cil-pencil" ></svg></button>
+                  <button *ngIf="employeeType == 'admin'" class="btn btn-outline-info update" type="submit" (click)="DeleteProduct(product.productId)"><svg cIcon name="cil-delete" ></svg></button>
+                </div>
+              </div>        
+            </span>
+  
+            <c-card-body class="update-from"  *ngIf="update && employeeType == 'admin'">
+              <hr style="border: 1px solid;">
+              <form [formGroup] = "ProductRequest" cForm>
+                <c-input-group class="mb-3">
+                  <input cFormControl autoComplete="Name" formControlName="ProductName" placeholder="Name" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <input cFormControl autoComplete="Price" formControlName="UnitPrice" placeholder="Price" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <input cFormControl autoComplete="Stock" formControlName="Stock" placeholder="Stock" type="number" min="1" />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <input cFormControl autoComplete="Description" formControlName="Description" placeholder="Description" />
+                </c-input-group>
+                <button cButton (click)="UpdateProduct(product.productId)" class="btn btn-outline-info" style="width: 100%;">
+                  Update
+                </button>
+              </form>
+            </c-card-body>   
+          </ng-template>
+        </c-accordion-item>
+      </c-accordion>
+    </c-card-body>
+  </c-card>
+  
+  
+  <ng-template #userDropdown>
+    <c-dropdown alignment="end" variant="nav-item">
+    <button class="btn btn-outline-success" type="submit" cDropdownToggle [caret]="false" ><svg cIcon name="cil-filter" ></svg></button>
+      <ul cDropdownMenu class="pt-0 pr-5 w-auto">
+        <li>
+          <h6 cDropdownHeader class="bg-light fw-semibold py-2">Account</h6>
+        </li>
+        <li></li>
+      </ul>
+    </c-dropdown>
+  </ng-template>
